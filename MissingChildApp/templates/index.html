@@ -1,0 +1,60 @@
+{% load static %}
+<html>
+<head>
+<title>Missing Child App</title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="{% static 'style.css' %}"/>
+</head>
+<body>
+<div id="wrapper">
+	<div id="header">
+		<div id="logo">
+			<center><font size="4" color="yellow">Missing Child Identification System using Deep
+Learning and Multiclass SVM</font></center>
+		</div>
+		<div id="slogan">
+			
+		</div>
+	</div>
+	<div id="menu">
+		<ul><center>
+	  <li><a href="{% url 'index' %}">Home</a></li>
+      <li><a href="{% url 'admin:login' %}">Official Login</a></li>
+
+      <li><a href="{% url 'upload' %}">Public Upload Suspected Child</a></li>
+			
+		</center></ul>
+		<br class="clearfix" />
+	</div>
+	<div id="splash">
+		<img class="pic" src="{% static 'images/investor.jpg' %}" width="870" height="230" alt="" />
+	</div>
+	<br/>
+	<p align="justify"><font size="3" style="font-family: Comic Sans MS" color='black'>
+		Abstract-In India a countless number of children are
+reported missing every year. Among the missing child cases a
+large percentage of children remain untraced. This paper
+presents a novel use of deep learning methodology for
+identifying the reported missing child from the photos of
+multitude of children available, with the help of face
+recognition. The public can upload photographs of suspicious
+child into a common portal with landmarks and remarks. The
+photo will be automatically compared with the registered
+photos of the missing child from the repository.</p><p align="justify"><font size="3" style="font-family: Comic Sans MS" color='black'> Classification
+of the input child image is performed and photo with best
+match will be selected from the database of missing children.
+For this, a deep learning model is trained to correctly identify
+the missing child from the missing child image database
+provided, using the facial image uploaded by the public. The
+Convolutional Neural Network (CNN), a highly effective deep
+learning technique for image based applications is adopted
+here for face recognition.</p><p align="justify"><font size="3" style="font-family: Comic Sans MS" color='black'> Face descriptors are extracted from
+the images using a pre-trained CNN model VGG-Face deep
+architecture. Compared with normal deep learning
+applications, our algorithm uses convolution network only as a
+high level feature extractor and the child recognition is done by
+the trained SVM classifier.
+
+</p>
+</body>
+</html>

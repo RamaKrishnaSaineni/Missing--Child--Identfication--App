@@ -1,0 +1,84 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Missing Child App - Official Login</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}"/>
+
+    <!-- JavaScript validation -->
+    <script type="text/javascript">
+        function validate() {
+            var username = document.forms["f1"]["t1"].value.trim();
+            var password = document.forms["f1"]["t2"].value.trim();
+
+            if (username === "") {
+                alert("Username must be entered");
+                document.f1.t1.focus();
+                return false;
+            }
+            if (password === "") {
+                alert("Password must be entered");
+                document.f1.t2.focus();
+                return false;
+            }
+            return true;
+        }
+    </script>
+</head>
+<body>
+    <div id="wrapper">
+
+        <!-- Header -->
+        <header id="header">
+            <div id="logo" style="text-align: center; padding: 10px;">
+                <h2 style="color: yellow; font-family: Arial, sans-serif;">
+                    Missing Child Identification System using Deep Learning and Multiclass SVM
+                </h2>
+            </div>
+        </header>
+
+        <!-- Menu -->
+        <nav id="menu" style="text-align: center; margin: 20px 0;">
+            <ul style="list-style: none; padding: 0;">
+                <li style="display: inline; margin: 0 15px;"><a href="{% url 'index' %}">Home</a></li>
+                <li style="display: inline; margin: 0 15px;"><a href="{% url 'login' %}">Official Login</a></li>
+                <li style="display: inline; margin: 0 15px;"><a href="{% url 'upload' %}">Public Upload</a></li>
+            </ul>
+        </nav>
+
+        <!-- Banner -->
+        <div id="splash" style="text-align: center; margin-bottom: 30px;">
+            <img src="{% static 'images/investor.jpg' %}" width="870" height="230" alt="Banner" class="banner-img"/>
+        </div>
+
+        <!-- Login Form -->
+        <main style="text-align: center;">
+            <form name="f1" method="post" action="{% url 'login' %}" onsubmit="return validate()">
+                {% csrf_token %}
+                <h3>Official Login</h3>
+                <p style="color: red;">{{ data }}</p>
+
+                <table align="center" style="margin: 0 auto; border-spacing: 10px;">
+                    <tr>
+                        <td><label for="t1"><b>Username</b></label></td>
+                        <td><input type="text" name="t1" id="t1" size="30" placeholder="Enter username"/></td>
+                    </tr>
+                    <tr>
+                        <td><label for="t2"><b>Password</b></label></td>
+                        <td><input type="password" name="t2" id="t2" size="30" placeholder="Enter password"/></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td><input type="submit" value="Login" class="btn"/></td>
+                    </tr>
+                </table>
+            </form>
+        </main>
+    </div>
+</body>
+</html>
